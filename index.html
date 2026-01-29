@@ -29,7 +29,7 @@
             font-family: 'Plus Jakarta Sans', sans-serif;
             background-color: var(--bg-dark);
             color: var(--text-main);
-            overflow-x: hidden;
+            overflow: hidden; /* Locked initially for welcome page */
             -webkit-font-smoothing: antialiased;
         }
 
@@ -51,6 +51,52 @@
             opacity: 0.6;
         }
 
+        /* Welcome Page Styles - Zoomed Out Aesthetic */
+        #welcome-page {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: #000;
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem 2rem; /* Increased padding */
+            overflow: hidden;
+        }
+
+        .welcome-content {
+            width: 100%;
+            max-width: 750px; /* Reduced width to "zoom out" content */
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            max-height: 90vh;
+            overflow-y: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            transform: scale(0.95); /* Subtle scale-down for cleaner look */
+        }
+
+        .welcome-content::-webkit-scrollbar { display: none; }
+
+        .welcome-bg-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: 50% 15%; /* Higher framing for Subject focus */
+            filter: grayscale(100%) brightness(0.22);
+            opacity: 0.9;
+            z-index: 1;
+            pointer-events: none;
+            transform: scale(1.05); /* Slight zoom-out feel compared to 1.1 */
+        }
+
         .main-wrapper {
             position: relative;
             z-index: 10;
@@ -67,10 +113,13 @@
 
         /* Spacing Reduction for Mobile */
         @media (max-width: 768px) {
-            #ecosystem, #collab, #trusted {
+            #ecosystem, #collab, #trusted, #value-add {
                 min-height: auto !important;
                 padding-top: 3rem !important;
                 padding-bottom: 3rem !important;
+            }
+            .welcome-content {
+                transform: scale(1); /* Keep mobile tight and perfect */
             }
         }
 
@@ -232,11 +281,6 @@
             box-shadow: 0 25px 50px -12px rgba(0, 229, 255, 0.15);
         }
 
-        .collab-card:hover::before {
-            opacity: 0.2;
-            transform: translate(-50%, -50%) scale(2.5);
-        }
-
         .collab-number {
             position: absolute;
             right: -20px;
@@ -287,16 +331,168 @@
             0%, 100% { transform: translateY(0px); }
             50% { transform: translateY(-15px); }
         }
+
+        /* Bento Grid 3D Aesthetic */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-auto-rows: minmax(200px, auto);
+            gap: 1.5rem;
+            width: 100%;
+            perspective: 2000px;
+        }
+
+        .bento-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: 2rem;
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            position: relative;
+            overflow: hidden;
+            transition: background 0.3s ease, border-color 0.3s ease;
+            opacity: 0;
+            transform: translateY(30px);
+            z-index: 2;
+        }
+
+        .bento-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: var(--accent);
+        }
+
+        .bento-card .val-num {
+            font-family: 'Bricolage Grotesque';
+            font-size: 0.65rem;
+            color: var(--accent);
+            opacity: 0.5;
+            letter-spacing: 0.3em;
+            position: absolute;
+            top: 2.5rem;
+            left: 2.5rem;
+            font-weight: 700;
+        }
+
+        .bento-card h4 {
+            font-size: clamp(1.2rem, 1.8vw, 1.8rem);
+            line-height: 1.1;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            color: #fff !important; /* Ensure always white */
+            letter-spacing: -0.02em;
+        }
+
+        .bento-card p {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: var(--text-dim);
+            font-weight: 300;
+        }
+
+        @media (max-width: 1024px) {
+            .bento-grid {
+                display: flex;
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            .bento-card {
+                min-height: auto;
+                padding: 2rem;
+                padding-top: 5rem;
+            }
+        }
+
+        /* Continuous Floating Keyframes */
+        @keyframes float3d {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .floating-element {
+            animation: float3d 6s ease-in-out infinite;
+        }
+
+        /* Background Image Specific Styling */
+        .section-bg-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%);
+            opacity: 0.25; /* More visible as requested */
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Refined Welcome Page Elements */
+        .welcome-line {
+            overflow: hidden;
+            display: block;
+        }
+
+        .welcome-line-inner {
+            display: block;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        #welcomeTitle {
+            font-weight: 300; /* Lighter heading as requested */
+            letter-spacing: -0.02em;
+        }
+
+        .welcome-para {
+            margin-bottom: 1rem; /* Spacing between lines */
+        }
     </style>
 </head>
 <body>
+
+    <!-- Welcome Page Overlay -->
+    <div id="welcome-page">
+        <img src="https://res.cloudinary.com/dj159rgsr/image/upload/v1769669345/494170991_18500361148005369_768825489208285612_n_ajtr3n.jpg" class="welcome-bg-img" alt="Krishna Rathi Aesthetic Intro">
+        <div class="welcome-content">
+            <span class="text-[10px] md:text-xs uppercase tracking-[0.6em] text-cyan-400 mb-6 block font-bold opacity-0" id="welcomeTop">A Note to Brands</span>
+            <h2 class="text-4xl md:text-5xl lg:text-6xl text-white mb-10 opacity-0" id="welcomeTitle">From Krishna Rathi</h2>
+            
+            <div id="welcome-text-reveal" class="space-y-4 md:space-y-5 text-sm md:text-base lg:text-lg text-gray-200 font-light leading-relaxed mb-12 text-center px-4 max-w-4xl mx-auto">
+                <p class="welcome-para"><span class="welcome-line"><span class="welcome-line-inner">“Every piece of content I create is built with one responsibility in mind</span></span>
+                <span class="welcome-line"><span class="welcome-line-inner">the responsibility I hold towards my audience. My audience trusts me</span></span>
+                <span class="welcome-line"><span class="welcome-line-inner">with their attention. That trust is never taken lightly.”</span></span></p>
+
+                <p class="welcome-para"><span class="welcome-line"><span class="welcome-line-inner">“So before any collaboration is considered, one question comes first:</span></span>
+                <span class="welcome-line"><span class="welcome-line-inner">Can this brand genuinely educate, add value, or expand my audience’s understanding in some way?”</span></span></p>
+
+                <p class="welcome-para hidden md:block"><span class="welcome-line"><span class="welcome-line-inner">“I do not treat collaborations as promotions. Rather I think of them as brand moments</span></span>
+                <span class="welcome-line"><span class="welcome-line-inner">where people walk away knowing something, feeling something, or seeing something differently.”</span></span></p>
+
+                <p class="welcome-para"><span class="welcome-line"><span class="welcome-line-inner">“If this way of thinking aligns with you, we will be happy to proceed further,</span></span>
+                <span class="welcome-line"><span class="welcome-line-inner">learn about your brand and create a forever brand memory for this world.”</span></span></p>
+
+                <p class="welcome-para"><span class="welcome-line mt-6 block"><span class="welcome-line-inner text-cyan-400 font-medium italic">When philosophies match, collaboration naturally makes sense!</span></span></p>
+            </div>
+
+            <div id="enterBtn" class="inline-flex items-center gap-6 px-12 py-5 bg-white text-black rounded-full cursor-pointer group hover:scale-105 transition-all opacity-0 shadow-2xl">
+                <span class="text-[10px] uppercase tracking-[0.3em] font-black">Tap to Enter</span>
+                <span class="group-hover:translate-x-1 transition-transform">→</span>
+            </div>
+            
+            <div class="mt-12 text-[10px] uppercase tracking-[0.4em] text-gray-500 opacity-0" id="welcomeRegards">Regards, Rathi Krishna 42</div>
+        </div>
+    </div>
 
     <nav class="nav-fixed">
         <div class="font-display text-lg md:text-xl tracking-tighter">KR.</div>
         <div class="flex items-center gap-2 md:gap-8">
             <a href="#work" class="magnetic-link">Work</a>
             <a href="#ecosystem" class="magnetic-link hidden sm:inline-block">Ecosystem</a>
+            <a href="#value-add" class="magnetic-link hidden lg:inline-block">The Table</a>
             <a href="#contact" class="magnetic-link">Collaborate</a>
+            
             <a href="https://www.instagram.com/rathikrishna42/" target="_blank" class="group cursor-pointer ml-2">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:text-cyan-400 transition-colors">
                     <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
@@ -373,7 +569,7 @@
                         <div class="reveal-img-wrap aspect-[4/5] mb-6">
                             <img src="https://res.cloudinary.com/dj159rgsr/image/upload/v1768856470/502735115_1211156567377919_2077984617445836119_n_eu5fxo.jpg" class="reveal-img parallax-img" alt="Uniqlo Reel Thumbnail">
                         </div>
-                        <h4 class="text-base md:text-lg font-bold uppercase">UNIQLO</h4>
+                        <h4 class="text base md:text-lg font-bold uppercase">UNIQLO</h4>
                         <span class="text-[10px] text-cyan-400 tracking-widest font-bold">8.2M VIEWS</span>
                     </a>
                     <a href="https://www.instagram.com/reel/C17gXkLrLmK/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="group cursor-pointer block">
@@ -565,6 +761,96 @@
             </div>
         </section>
 
+        <!-- NEW STAGE: WHAT KRISHNA BRINGS TO THE TABLE (3D BENTO GRID) -->
+        <section class="stage relative overflow-hidden bg-[#0a0a0a] text-white" id="value-add">
+            <!-- Background Image Integration -->
+            <img src="https://res.cloudinary.com/dj159rgsr/image/upload/v1769669345/494170991_18500361148005369_768825489208285612_n_ajtr3n.jpg" 
+                 class="section-bg-image parallax-bg-img" alt="Background Texture">
+
+            <!-- Background Glow and Visual Elements -->
+            <div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px); background-size: 120px 120px;"></div>
+            <div class="absolute top-1/4 -right-10 w-96 h-96 bg-cyan-500/5 blur-[150px] rounded-full"></div>
+
+            <div class="w-full max-w-7xl relative z-10">
+                <div class="mb-16 md:mb-20 text-center flex flex-col items-center">
+                    <span class="text-[10px] md:text-xs uppercase tracking-[0.6em] text-cyan-400 mb-6 block font-bold" id="valSub">The Strategic Edge</span>
+                    <h2 class="text-5xl md:text-8xl leading-[0.85] text-white text-center" id="valTitle">
+                        What Krishna <br>Brings To The Table.
+                    </h2>
+                    <p class="mt-8 text-lg md:text-xl text-gray-400 font-light italic">More than reach. <span class="text-white">Measurable relevance.</span></p>
+                </div>
+
+                <div class="bento-grid" id="valGrid">
+                    <!-- 01: Audience Intelligence (Wide) -->
+                    <div class="bento-card col-span-12 lg:col-span-8 floating-element" style="animation-delay: 0s">
+                        <span class="val-num">01 / BEHAVIORAL INTEL</span>
+                        <h4>Audience Intelligence, Not Guesswork</h4>
+                        <p>A deep, behaviour-level understanding of what audiences care about, engage with, and save — not just what they like or view.</p>
+                    </div>
+
+                    <!-- 02: Engagement (Tall) -->
+                    <div class="bento-card col-span-12 lg:col-span-4 lg:row-span-2 floating-element" style="animation-delay: 0.5s">
+                        <span class="val-num">02 / SIGNAL</span>
+                        <h4>Engagement That Signals Real Interest</h4>
+                        <p>Consistently delivering engagement rates significantly above industry benchmarks — driven by relevance, not volume.</p>
+                    </div>
+
+                    <!-- 03: Organic Case Studies -->
+                    <div class="bento-card col-span-12 lg:col-span-4 floating-element" style="animation-delay: 1s">
+                        <span class="val-num">03 / NATIVE</span>
+                        <h4>Organic Case Studies</h4>
+                        <p>Brand integrations built around real use-cases and contextual storytelling, resulting in content that feels native.</p>
+                    </div>
+
+                    <!-- 04: Discoverability -->
+                    <div class="bento-card col-span-12 lg:col-span-4 floating-element" style="animation-delay: 1.5s">
+                        <span class="val-num">04 / SEO</span>
+                        <h4>Built for Discoverability</h4>
+                        <p>Every collaboration is structured to remain searchable and valuable over time through SEO-optimised narratives.</p>
+                    </div>
+
+                    <!-- 05: Brand Introductions (Wide) -->
+                    <div class="bento-card col-span-12 lg:col-span-5 floating-element" style="animation-delay: 2s">
+                        <span class="val-num">05 / PURPOSE</span>
+                        <h4>Introductions with Clarity</h4>
+                        <p>Brands are introduced with intent — helping audiences understand why a brand exists before asking them to notice it.</p>
+                    </div>
+
+                    <!-- 06: Whitelisting -->
+                    <div class="bento-card col-span-12 lg:col-span-3 floating-element" style="animation-delay: 2.5s">
+                        <span class="val-num">06 / AMPLIFIED</span>
+                        <h4>Selective Whitelisting</h4>
+                        <p>Selective rights that allow brands to amplify high-performing content with narrative control.</p>
+                    </div>
+
+                    <!-- 07: Intent Signals -->
+                    <div class="bento-card col-span-12 lg:col-span-4 floating-element" style="animation-delay: 3s">
+                        <span class="val-num">07 / RETENTION</span>
+                        <h4>High Save-to-Reach Signals</h4>
+                        <p>Content designed to be revisited — reflected in consistently strong save-to-reach ratios.</p>
+                    </div>
+
+                    <!-- 08: Minimalist Psychology (Wide-Large) -->
+                    <div class="bento-card col-span-12 lg:col-span-7 floating-element" style="animation-delay: 3.5s">
+                        <span class="val-num">08 / USP: PSYCH-LEAD</span>
+                        <h4>Psychology-Led Storytelling</h4>
+                        <p>A clean, communication style rooted in behavioural psychology — optimised for comprehension and trust.</p>
+                    </div>
+
+                    <!-- 09: Compounding Assets -->
+                    <div class="bento-card col-span-12 lg:col-span-5 floating-element" style="animation-delay: 4s">
+                        <span class="val-num">09 / COMPOUNDING</span>
+                        <h4>Assets, Not Moments</h4>
+                        <p>Every piece is designed as an asset — creating long-term brand recall rather than short-term exposure.</p>
+                    </div>
+                </div>
+                
+                <div class="mt-20 text-center max-w-2xl mx-auto opacity-50 italic font-light text-sm md:text-base">
+                    "Krishna partners with brands to build understanding, trust, and lasting relevance — not one-off visibility."
+                </div>
+            </div>
+        </section>
+
         <!-- STAGE 5: THE ECOSYSTEM -->
         <section class="stage" id="ecosystem">
             <div class="w-full text-center">
@@ -636,7 +922,7 @@
                                 Content + brand strategy
                             </li>
                             <li class="flex items-start gap-3">
-                                <span class="text-cyan-400 mt-1">→</span>
+                                <span class="text-cyan-400 mt-1) →</span>
                                 Packaging / identity / narrative
                             </li>
                             <li class="flex items-start gap-3">
@@ -834,13 +1120,53 @@
         gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
 
         function initGSAP() {
-            gsap.to(".split-inner", {
-                y: 0,
-                rotate: 0,
-                duration: 1.8,
-                stagger: 0.15,
-                ease: "expo.out",
-                delay: 0.5
+            // Welcome Page Animation Timeline
+            const welcomeTl = gsap.timeline();
+            welcomeTl.to("#welcomeTop", { opacity: 1, y: 0, duration: 1, delay: 0.5 })
+                     .to("#welcomeTitle", { opacity: 1, y: 0, duration: 1 }, "-=0.5")
+                     .to(".welcome-line-inner", { 
+                        opacity: 1, 
+                        y: 0, 
+                        stagger: 0.2, 
+                        duration: 1.2,
+                        ease: "power3.out"
+                     }, "-=0.5")
+                     .to("#enterBtn", { opacity: 1, y: 0, duration: 1 }, "-=0.4")
+                     .to("#welcomeRegards", { opacity: 0.4, y: 0, duration: 1 }, "-=0.5");
+
+            // WELCOME PARALLAX
+            document.getElementById('welcome-page').addEventListener('mousemove', (e) => {
+                const moveX = (e.clientX - window.innerWidth / 2) * 0.015;
+                const moveY = (e.clientY - window.innerHeight / 2) * 0.015;
+                gsap.to('.welcome-bg-img', { 
+                    x: moveX, 
+                    y: moveY, 
+                    duration: 1.5,
+                    ease: "power2.out"
+                });
+            });
+
+            document.getElementById('enterBtn').addEventListener('click', () => {
+                gsap.to("#welcome-page", { 
+                    opacity: 0, 
+                    pointerEvents: "none", 
+                    duration: 1.5, 
+                    ease: "expo.inOut",
+                    onComplete: () => {
+                        document.getElementById('welcome-page').style.display = 'none';
+                        document.body.style.overflow = 'auto';
+                        ScrollTrigger.refresh();
+                    }
+                });
+                
+                gsap.to(".split-inner", {
+                    y: 0,
+                    rotate: 0,
+                    duration: 1.8,
+                    stagger: 0.15,
+                    ease: "expo.out",
+                    delay: 0.5
+                });
             });
 
             gsap.to("#progressBar", {
@@ -867,7 +1193,7 @@
                 });
             });
 
-            // FIXED: Mobile Centered Glow for Collaboration Cards
+            // Mobile Centered Glow for Collaboration Cards
             if (window.innerWidth <= 768) {
                 gsap.utils.toArray('.collab-card').forEach(card => {
                     ScrollTrigger.create({
@@ -886,7 +1212,7 @@
             }
 
             document.querySelectorAll('.stage').forEach(stage => {
-                if(stage.id === 'hero') return;
+                if(stage.id === 'hero' || stage.id === 'value-add') return;
                 gsap.from(stage.children, {
                     scrollTrigger: {
                         trigger: stage,
@@ -901,6 +1227,7 @@
                 });
             });
 
+            // Theme Transition 1: Philosophy (White background)
             gsap.to("body", {
                 backgroundColor: "#ffffff",
                 color: "#000000",
@@ -908,6 +1235,55 @@
                     trigger: "#philosophy",
                     start: "top center",
                     end: "bottom center",
+                    scrub: true
+                }
+            });
+
+            // Theme Transition 2: Bento (Back to Dark)
+            ScrollTrigger.create({
+                trigger: "#value-add",
+                start: "top center",
+                onEnter: () => {
+                    gsap.to("body", { backgroundColor: "#0a0a0a", color: "#f5f5f7", duration: 0.4 });
+                    // Explicitly reveal bento cards
+                    gsap.to(".bento-card", { opacity: 1, y: 0, stagger: 0.1, duration: 0.8, ease: "power4.out" });
+                },
+                onLeaveBack: () => gsap.to("body", { backgroundColor: "#ffffff", color: "#000000", duration: 0.4 })
+            });
+
+            // Theme Transition 3: Ecosystem & Beyond (Back to White)
+            gsap.to("body", {
+                backgroundColor: "#ffffff",
+                color: "#000000",
+                scrollTrigger: {
+                    trigger: "#ecosystem",
+                    start: "top center",
+                    end: "bottom center",
+                    scrub: true
+                }
+            });
+
+            // Bento Grid Entrance Animation
+            gsap.from("#valTitle, #valSub", {
+                scrollTrigger: {
+                    trigger: "#value-add",
+                    start: "top 75%",
+                },
+                y: 50,
+                opacity: 0,
+                duration: 1.2,
+                stagger: 0.2,
+                ease: "power4.out"
+            });
+
+            // Subtle Parallax for the Background Image in Value Section
+            gsap.to(".parallax-bg-img", {
+                y: "20%",
+                ease: "none",
+                scrollTrigger: {
+                    trigger: "#value-add",
+                    start: "top bottom",
+                    end: "bottom top",
                     scrub: true
                 }
             });
@@ -920,6 +1296,19 @@
                     trigger: "#analytics",
                     start: "top 70%"
                 }
+            });
+
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', (e) => {
+                    const targetId = anchor.getAttribute('href');
+                    if (targetId === "#") return;
+                    e.preventDefault();
+                    gsap.to(window, {
+                        duration: 1.2,
+                        scrollTo: { y: targetId, autoKill: false },
+                        ease: "power4.inOut"
+                    });
+                });
             });
 
             document.getElementById('scrollEnterBtn').addEventListener('click', () => {
@@ -939,7 +1328,7 @@
             gsap.to(ring, { x: e.clientX - 20, y: e.clientY - 20, duration: 0.25 });
         });
 
-        document.querySelectorAll('a, button, .group, .collab-card, input, textarea, label').forEach(el => {
+        document.querySelectorAll('a, button, .group, .collab-card, .bento-card, input, textarea, label').forEach(el => {
             el.addEventListener('mouseenter', () => {
                 gsap.to(ring, { scale: 1.5, borderColor: '#00e5ff', duration: 0.3 });
                 gsap.to(cursor, { scale: 0, duration: 0.3 });
@@ -956,9 +1345,11 @@
         };
 
         window.addEventListener('resize', () => {
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight);
+            if(camera && renderer) {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            }
         });
     </script>
 </body>
