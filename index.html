@@ -113,7 +113,7 @@
 
         /* Spacing Reduction for Mobile */
         @media (max-width: 768px) {
-            #ecosystem, #collab, #trusted, #value-add {
+            #collab, #trusted, #value-add {
                 min-height: auto !important;
                 padding-top: 3rem !important;
                 padding-bottom: 3rem !important;
@@ -427,6 +427,18 @@
             pointer-events: none;
             z-index: 1;
         }
+        
+        /* Reduced size & enhanced visibility for Value Add background on mobile */
+        @media (max-width: 768px) {
+            #value-add .section-bg-image {
+                opacity: 0.45;
+                object-fit: contain;
+                width: 90%;
+                height: 90%;
+                left: 5%;
+                top: 5%;
+            }
+        }
 
         /* Refined Welcome Page Elements */
         .welcome-line {
@@ -489,8 +501,7 @@
         <div class="font-display text-lg md:text-xl tracking-tighter">KR.</div>
         <div class="flex items-center gap-2 md:gap-8">
             <a href="#work" class="magnetic-link">Work</a>
-            <a href="#ecosystem" class="magnetic-link hidden sm:inline-block">Ecosystem</a>
-            <a href="#value-add" class="magnetic-link hidden lg:inline-block">The Table</a>
+            <a href="#value-add" class="magnetic-link">The Table</a>
             <a href="#contact" class="magnetic-link">Collaborate</a>
             
             <a href="https://www.instagram.com/rathikrishna42/" target="_blank" class="group cursor-pointer ml-2">
@@ -645,6 +656,96 @@
             </div>
         </section>
 
+        <!-- STAGE 3.75: WHAT KRISHNA BRINGS TO THE TABLE -->
+        <section class="stage relative overflow-hidden bg-[#0a0a0a] text-white" id="value-add">
+            <!-- Background Image -->
+            <img src="https://res.cloudinary.com/dj159rgsr/image/upload/v1769759174/ChatGPT_Image_Jan_30_2026_01_15_54_PM_sxd8as.png" 
+                 class="section-bg-image parallax-bg-img" alt="Background Texture">
+
+            <!-- Background Glow and Visual Elements -->
+            <div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px); background-size: 120px 120px;"></div>
+            <div class="absolute top-1/4 -right-10 w-96 h-96 bg-cyan-500/5 blur-[150px] rounded-full"></div>
+
+            <div class="w-full max-w-7xl relative z-10">
+                <div class="mb-16 md:mb-20 text-center flex flex-col items-center">
+                    <span class="text-[10px] md:text-xs uppercase tracking-[0.6em] text-cyan-400 mb-6 block font-bold" id="valSub">The Strategic Edge</span>
+                    <h2 class="text-5xl md:text-8xl leading-[0.85] text-white text-center" id="valTitle">
+                        Why Brands <br>Work with Krishna.
+                    </h2>
+                    <p class="mt-8 text-lg md:text-xl text-gray-400 font-light italic">More than reach. <span class="text-white">Measurable relevance.</span></p>
+                </div>
+
+                <div class="bento-grid" id="valGrid">
+                    <!-- 01: Audience Intelligence -->
+                    <div class="bento-card col-span-12 lg:col-span-8 floating-element" style="animation-delay: 0s">
+                        <span class="val-num">01 / BEHAVIORAL INTEL</span>
+                        <h4>Audience Intelligence, Not Guesswork</h4>
+                        <p>A deep, behaviour-level understanding of what audiences care about, engage with, and save — not just what they like or view.</p>
+                    </div>
+
+                    <!-- 02: Engagement -->
+                    <div class="bento-card col-span-12 lg:col-span-4 lg:row-span-2 floating-element" style="animation-delay: 0.5s">
+                        <span class="val-num">02 / SIGNAL</span>
+                        <h4>Engagement That Signals Real Interest</h4>
+                        <p>Consistently delivering engagement rates significantly above industry benchmarks — driven by relevance, not volume.</p>
+                    </div>
+
+                    <!-- 03: Organic Case Studies -->
+                    <div class="bento-card col-span-12 lg:col-span-4 floating-element" style="animation-delay: 1s">
+                        <span class="val-num">03 / NATIVE</span>
+                        <h4>Organic Case Studies</h4>
+                        <p>Brand integrations built around real use-cases and contextual storytelling, resulting in content that feels native.</p>
+                    </div>
+
+                    <!-- 04: Discoverability -->
+                    <div class="bento-card col-span-12 lg:col-span-4 floating-element" style="animation-delay: 1s">
+                        <span class="val-num">04 / SEO</span>
+                        <h4>Built for Discoverability</h4>
+                        <p>Every collaboration is structured to remain searchable and valuable over time through SEO-optimised narratives.</p>
+                    </div>
+
+                    <!-- 05: Brand Introductions -->
+                    <div class="bento-card col-span-12 lg:col-span-5 floating-element" style="animation-delay: 2s">
+                        <span class="val-num">05 / PURPOSE</span>
+                        <h4>Introductions with Clarity</h4>
+                        <p>Brands are introduced with intent — helping audiences understand why a brand exists before asking them to notice it.</p>
+                    </div>
+
+                    <!-- 06: Whitelisting -->
+                    <div class="bento-card col-span-12 lg:col-span-3 floating-element" style="animation-delay: 2.5s">
+                        <span class="val-num">06 / AMPLIFIED</span>
+                        <h4>Selective Whitelisting</h4>
+                        <p>Selective rights that allow brands to amplify high-performing content with narrative control.</p>
+                    </div>
+
+                    <!-- 07: Intent Signals -->
+                    <div class="bento-card col-span-12 lg:col-span-4 floating-element" style="animation-delay: 3s">
+                        <span class="val-num">07 / RETENTION</span>
+                        <h4>High Save-to-Reach Signals</h4>
+                        <p>Content designed to be revisited — reflected in consistently strong save-to-reach ratios.</p>
+                    </div>
+
+                    <!-- 08: Minimalist Psychology -->
+                    <div class="bento-card col-span-12 lg:col-span-7 floating-element" style="animation-delay: 3.5s">
+                        <span class="val-num">08 / USP: PSYCH-LEAD</span>
+                        <h4>Psychology-Led Storytelling</h4>
+                        <p>A clean, communication style rooted in behavioural psychology — optimised for comprehension and trust.</p>
+                    </div>
+
+                    <!-- 09: Compounding Assets -->
+                    <div class="bento-card col-span-12 lg:col-span-5 floating-element" style="animation-delay: 4s">
+                        <span class="val-num">09 / COMPOUNDING</span>
+                        <h4>Assets, Not Moments</h4>
+                        <p>Every piece is designed as an asset — creating long-term brand recall rather than short-term exposure.</p>
+                    </div>
+                </div>
+                
+                <div class="mt-20 text-center max-w-2xl mx-auto opacity-50 italic font-light text-sm md:text-base">
+                    "Krishna partners with brands to build understanding, trust, and lasting relevance — not one-off visibility."
+                </div>
+            </div>
+        </section>
+
         <!-- STAGE 3.5: PERFORMANCE ANALYTICS -->
         <section class="stage" id="analytics">
             <div class="w-full">
@@ -761,125 +862,6 @@
             </div>
         </section>
 
-        <!-- NEW STAGE: WHAT KRISHNA BRINGS TO THE TABLE (3D BENTO GRID) -->
-        <section class="stage relative overflow-hidden bg-[#0a0a0a] text-white" id="value-add">
-            <!-- Background Image Integration -->
-            <img src="https://res.cloudinary.com/dj159rgsr/image/upload/v1769669345/494170991_18500361148005369_768825489208285612_n_ajtr3n.jpg" 
-                 class="section-bg-image parallax-bg-img" alt="Background Texture">
-
-            <!-- Background Glow and Visual Elements -->
-            <div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px); background-size: 120px 120px;"></div>
-            <div class="absolute top-1/4 -right-10 w-96 h-96 bg-cyan-500/5 blur-[150px] rounded-full"></div>
-
-            <div class="w-full max-w-7xl relative z-10">
-                <div class="mb-16 md:mb-20 text-center flex flex-col items-center">
-                    <span class="text-[10px] md:text-xs uppercase tracking-[0.6em] text-cyan-400 mb-6 block font-bold" id="valSub">The Strategic Edge</span>
-                    <h2 class="text-5xl md:text-8xl leading-[0.85] text-white text-center" id="valTitle">
-                        What Krishna <br>Brings To The Table.
-                    </h2>
-                    <p class="mt-8 text-lg md:text-xl text-gray-400 font-light italic">More than reach. <span class="text-white">Measurable relevance.</span></p>
-                </div>
-
-                <div class="bento-grid" id="valGrid">
-                    <!-- 01: Audience Intelligence (Wide) -->
-                    <div class="bento-card col-span-12 lg:col-span-8 floating-element" style="animation-delay: 0s">
-                        <span class="val-num">01 / BEHAVIORAL INTEL</span>
-                        <h4>Audience Intelligence, Not Guesswork</h4>
-                        <p>A deep, behaviour-level understanding of what audiences care about, engage with, and save — not just what they like or view.</p>
-                    </div>
-
-                    <!-- 02: Engagement (Tall) -->
-                    <div class="bento-card col-span-12 lg:col-span-4 lg:row-span-2 floating-element" style="animation-delay: 0.5s">
-                        <span class="val-num">02 / SIGNAL</span>
-                        <h4>Engagement That Signals Real Interest</h4>
-                        <p>Consistently delivering engagement rates significantly above industry benchmarks — driven by relevance, not volume.</p>
-                    </div>
-
-                    <!-- 03: Organic Case Studies -->
-                    <div class="bento-card col-span-12 lg:col-span-4 floating-element" style="animation-delay: 1s">
-                        <span class="val-num">03 / NATIVE</span>
-                        <h4>Organic Case Studies</h4>
-                        <p>Brand integrations built around real use-cases and contextual storytelling, resulting in content that feels native.</p>
-                    </div>
-
-                    <!-- 04: Discoverability -->
-                    <div class="bento-card col-span-12 lg:col-span-4 floating-element" style="animation-delay: 1.5s">
-                        <span class="val-num">04 / SEO</span>
-                        <h4>Built for Discoverability</h4>
-                        <p>Every collaboration is structured to remain searchable and valuable over time through SEO-optimised narratives.</p>
-                    </div>
-
-                    <!-- 05: Brand Introductions (Wide) -->
-                    <div class="bento-card col-span-12 lg:col-span-5 floating-element" style="animation-delay: 2s">
-                        <span class="val-num">05 / PURPOSE</span>
-                        <h4>Introductions with Clarity</h4>
-                        <p>Brands are introduced with intent — helping audiences understand why a brand exists before asking them to notice it.</p>
-                    </div>
-
-                    <!-- 06: Whitelisting -->
-                    <div class="bento-card col-span-12 lg:col-span-3 floating-element" style="animation-delay: 2.5s">
-                        <span class="val-num">06 / AMPLIFIED</span>
-                        <h4>Selective Whitelisting</h4>
-                        <p>Selective rights that allow brands to amplify high-performing content with narrative control.</p>
-                    </div>
-
-                    <!-- 07: Intent Signals -->
-                    <div class="bento-card col-span-12 lg:col-span-4 floating-element" style="animation-delay: 3s">
-                        <span class="val-num">07 / RETENTION</span>
-                        <h4>High Save-to-Reach Signals</h4>
-                        <p>Content designed to be revisited — reflected in consistently strong save-to-reach ratios.</p>
-                    </div>
-
-                    <!-- 08: Minimalist Psychology (Wide-Large) -->
-                    <div class="bento-card col-span-12 lg:col-span-7 floating-element" style="animation-delay: 3.5s">
-                        <span class="val-num">08 / USP: PSYCH-LEAD</span>
-                        <h4>Psychology-Led Storytelling</h4>
-                        <p>A clean, communication style rooted in behavioural psychology — optimised for comprehension and trust.</p>
-                    </div>
-
-                    <!-- 09: Compounding Assets -->
-                    <div class="bento-card col-span-12 lg:col-span-5 floating-element" style="animation-delay: 4s">
-                        <span class="val-num">09 / COMPOUNDING</span>
-                        <h4>Assets, Not Moments</h4>
-                        <p>Every piece is designed as an asset — creating long-term brand recall rather than short-term exposure.</p>
-                    </div>
-                </div>
-                
-                <div class="mt-20 text-center max-w-2xl mx-auto opacity-50 italic font-light text-sm md:text-base">
-                    "Krishna partners with brands to build understanding, trust, and lasting relevance — not one-off visibility."
-                </div>
-            </div>
-        </section>
-
-        <!-- STAGE 5: THE ECOSYSTEM -->
-        <section class="stage" id="ecosystem">
-            <div class="w-full text-center">
-                <span class="text-[10px] md:text-xs uppercase tracking-[0.4em] text-gray-500 mb-8 md:mb-12 block">From Thought to Execution</span>
-                <div class="flex flex-col md:flex-row gap-6 md:gap-8 justify-center items-stretch text-left">
-                    <div class="flex-1 p-8 md:p-10 border border-white/10 rounded-2xl levitate">
-                        <h4 class="text-2xl md:text-3xl mb-4 text-cyan-400 uppercase tracking-tighter">Krishna Rathi</h4>
-                        <ul class="space-y-4 text-gray-400 text-xs md:text-sm font-light">
-                            <li>• Brand thinking</li>
-                            <li>• Public trust</li>
-                            <li>• Distribution</li>
-                            <li>• Credibility</li>
-                        </ul>
-                    </div>
-                    <div class="flex items-center justify-center opacity-20 text-3xl md:text-4xl levitate" style="animation-delay: 0.1s">+</div>
-                    <div class="flex-1 p-8 md:p-10 border border-white/10 rounded-2xl levitate" style="animation-delay: 0.2s">
-                        <h4 class="text-2xl md:text-3xl mb-4 text-purple-400 uppercase tracking-tighter">FourTwo Creative</h4>
-                        <ul class="space-y-4 text-gray-400 text-xs md:text-sm font-light">
-                            <li>• Brand strategy</li>
-                            <li>• Packaging & identity</li>
-                            <li>• Content systems</li>
-                            <li>• Execution teams</li>
-                        </ul>
-                    </div>
-                </div>
-                <p class="mt-10 md:mt-12 text-gray-500 max-w-2xl mx-auto text-xs md:text-sm leading-relaxed">Most creators stop at content. Most agencies struggle with distribution. This ecosystem does both - seamlessly.</p>
-            </div>
-        </section>
-
         <!-- STAGE 6: WAYS TO COLLABORATE -->
         <section class="stage flex-col" id="collab">
             <div class="w-full mb-12 md:mb-20 text-center">
@@ -894,20 +876,6 @@
                 <div class="collab-card p-8 md:p-12 rounded-[2rem] md:rounded-[2.5rem] group cursor-pointer levitate">
                     <div class="relative z-10 h-full flex flex-col">
                         <h5 class="text-2xl md:text-3xl mb-6 uppercase tracking-tight">Strategic Brand Visibility</h5>
-                        <ul class="space-y-4 text-gray-400 text-xs md:text-sm mb-12 flex-grow font-light">
-                            <li class="flex items-start gap-3">
-                                <span class="text-cyan-400 mt-1">→</span>
-                                Insight-led reels
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="text-cyan-400 mt-1">→</span>
-                                Founder POV storytelling
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="text-cyan-400 mt-1">→</span>
-                                Organic brand placement
-                            </li>
-                        </ul>
                     </div>
                     <div class="collab-number">01</div>
                 </div>
@@ -916,20 +884,6 @@
                 <div class="collab-card p-8 md:p-12 rounded-[2rem] md:rounded-[2.5rem] group cursor-pointer bg-white/[0.04] levitate" style="animation-delay: 0.2s">
                     <div class="relative z-10 h-full flex flex-col">
                         <h5 class="text-2xl md:text-3xl mb-6 uppercase tracking-tight">Build + Amplify</h5>
-                        <ul class="space-y-4 text-gray-400 text-sm mb-12 flex-grow font-light">
-                            <li class="flex items-start gap-3">
-                                <span class="text-cyan-400 mt-1">→</span>
-                                Content + brand strategy
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="text-cyan-400 mt-1) →</span>
-                                Packaging / identity / narrative
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="text-cyan-400 mt-1">→</span>
-                                Full-funnel execution by FourTwo
-                            </li>
-                        </ul>
                     </div>
                     <div class="collab-number">02</div>
                 </div>
@@ -938,20 +892,6 @@
                 <div class="collab-card p-8 md:p-12 rounded-[2rem] md:rounded-[2.5rem] group cursor-pointer levitate" style="animation-delay: 0.4s">
                     <div class="relative z-10 h-full flex flex-col">
                         <h5 class="text-2xl md:text-3xl mb-6 uppercase tracking-tight">Long-Term Brand Partner</h5>
-                        <ul class="space-y-4 text-gray-400 text-xs md:text-sm mb-12 flex-grow font-light">
-                            <li class="flex items-start gap-3">
-                                <span class="text-cyan-400 mt-1">→</span>
-                                Monthly content
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="text-cyan-400 mt-1">→</span>
-                                Quarterly strategy
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="text-cyan-400 mt-1">→</span>
-                                Ongoing creative execution
-                            </li>
-                        </ul>
                     </div>
                     <div class="collab-number">03</div>
                 </div>
@@ -987,63 +927,41 @@
                         </div>
                     </div>
 
-                    <form class="space-y-10 md:space-y-12">
+                    <form id="whatsappForm" class="space-y-10 md:space-y-12">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10 md:gap-y-12">
                             <div class="space-y-10 md:space-y-12">
                                 <div class="relative group">
                                     <label class="text-[8px] md:text-[9px] uppercase tracking-[0.2em] text-gray-500 block mb-1 group-focus-within:text-cyan-400 transition-colors duration-500">Brand / Company Name*</label>
-                                    <input type="text" required class="bg-transparent border-b border-white/10 w-full py-2 outline-none focus:border-cyan-400 transition-all text-xs md:text-sm font-light tracking-wide">
+                                    <input type="text" id="brand_name" required class="bg-transparent border-b border-white/10 w-full py-2 outline-none focus:border-cyan-400 transition-all text-xs md:text-sm font-light tracking-wide">
                                 </div>
                                 <div class="relative group">
                                     <label class="text-[8px] md:text-[9px] uppercase tracking-[0.2em] text-gray-500 block mb-1 group-focus-within:text-cyan-400 transition-colors duration-500">Your Name*</label>
-                                    <input type="text" required class="bg-transparent border-b border-white/10 w-full py-2 outline-none focus:border-cyan-400 transition-all text-xs md:text-sm font-light tracking-wide">
+                                    <input type="text" id="user_name" required class="bg-transparent border-b border-white/10 w-full py-2 outline-none focus:border-cyan-400 transition-all text-xs md:text-sm font-light tracking-wide">
                                 </div>
                                 <div class="relative group">
                                     <label class="text-[8px] md:text-[9px] uppercase tracking-[0.2em] text-gray-500 block mb-1 group-focus-within:text-cyan-400 transition-colors duration-500">Email Address*</label>
-                                    <input type="email" required class="bg-transparent border-b border-white/10 w-full py-2 outline-none focus:border-cyan-400 transition-all text-xs md:text-sm font-light tracking-wide">
+                                    <input type="email" id="user_email" required class="bg-transparent border-b border-white/10 w-full py-2 outline-none focus:border-cyan-400 transition-all text-xs md:text-sm font-light tracking-wide">
                                 </div>
                             </div>
                             <div class="space-y-10 md:space-y-12">
                                 <div class="relative group">
                                     <label class="text-[8px] md:text-[9px] uppercase tracking-[0.2em] text-gray-500 block mb-1 group-focus-within:text-cyan-400 transition-colors duration-500">Website / Instagram Link</label>
-                                    <input type="url" class="bg-transparent border-b border-white/10 w-full py-2 outline-none focus:border-cyan-400 transition-all text-xs md:text-sm font-light tracking-wide">
-                                </div>
-                                <div class="relative group">
-                                    <label class="text-[8px] md:text-[9px] uppercase tracking-[0.2em] text-gray-500 block mb-1 group-focus-within:text-cyan-400 transition-colors duration-500">Role / Designation</label>
-                                    <input type="text" class="bg-transparent border-b border-white/10 w-full py-2 outline-none focus:border-cyan-400 transition-all text-xs md:text-sm font-light tracking-wide">
+                                    <input type="url" id="user_link" class="bg-transparent border-b border-white/10 w-full py-2 outline-none focus:border-cyan-400 transition-all text-xs md:text-sm font-light tracking-wide">
                                 </div>
                                 <div class="relative group">
                                     <label class="text-[8px] md:text-[9px] uppercase tracking-[0.2em] text-gray-500 block mb-1 group-focus-within:text-cyan-400 transition-colors duration-500">Phone / WhatsApp</label>
-                                    <input type="tel" class="bg-transparent border-b border-white/10 w-full py-2 outline-none focus:border-cyan-400 transition-all text-xs md:text-sm font-light tracking-wide">
+                                    <input type="tel" id="user_phone" class="bg-transparent border-b border-white/10 w-full py-2 outline-none focus:border-cyan-400 transition-all text-xs md:text-sm font-light tracking-wide">
                                 </div>
                             </div>
                         </div>
 
                         <div class="relative group">
                             <label class="text-[8px] md:text-[9px] uppercase tracking-[0.2em] text-gray-500 block mb-1 group-focus-within:text-cyan-400 transition-colors duration-500">What do you want to collaborate on?*</label>
-                            <textarea required class="bg-transparent border-b border-white/10 w-full py-2 outline-none focus:border-cyan-400 transition-all h-24 md:h-32 resize-none text-xs md:text-sm font-light tracking-wide"></textarea>
-                        </div>
-
-                        <div>
-                            <label class="text-[8px] md:text-[9px] uppercase tracking-[0.2em] text-gray-500 block mb-6">Target Timeline</label>
-                            <div class="flex flex-wrap gap-2 md:gap-3">
-                                <label class="group cursor-pointer">
-                                    <input type="radio" name="timeline" value="Immediate" class="hidden peer">
-                                    <span class="px-4 md:px-8 py-2 md:py-3 border border-white/5 rounded-xl text-[8px] md:text-[10px] uppercase tracking-widest peer-checked:bg-cyan-400 peer-checked:text-black peer-checked:border-cyan-400 hover:bg-white/5 transition-all duration-300 inline-block">Immediate</span>
-                                </label>
-                                <label class="group cursor-pointer">
-                                    <input type="radio" name="timeline" value="1-3 Months" class="hidden peer">
-                                    <span class="px-4 md:px-8 py-2 md:py-3 border border-white/5 rounded-xl text-[8px] md:text-[10px] uppercase tracking-widest peer-checked:bg-cyan-400 peer-checked:text-black peer-checked:border-cyan-400 hover:bg-white/5 transition-all duration-300 inline-block">1–3 Months</span>
-                                </label>
-                                <label class="group cursor-pointer">
-                                    <input type="radio" name="timeline" value="3-6 Months" class="hidden peer">
-                                    <span class="px-4 md:px-8 py-2 md:py-3 border border-white/5 rounded-xl text-[8px] md:text-[10px] uppercase tracking-widest peer-checked:bg-cyan-400 peer-checked:text-black peer-checked:border-cyan-400 hover:bg-white/5 transition-all duration-300 inline-block">3–6 Months</span>
-                                </label>
-                            </div>
+                            <textarea id="user_collab" required class="bg-transparent border-b border-white/10 w-full py-2 outline-none focus:border-cyan-400 transition-all h-24 md:h-32 resize-none text-xs md:text-sm font-light tracking-wide"></textarea>
                         </div>
 
                         <button type="submit" class="w-full lg:w-auto px-10 md:px-12 py-5 md:py-6 bg-white text-black rounded-2xl group relative overflow-hidden transition-all duration-500 hover:scale-[1.02] shadow-2xl shadow-cyan-400/10">
-                            <span class="relative z-10 font-display text-xs md:text-sm uppercase tracking-widest">Submit → Build With Krishna × FourTwo.</span>
+                            <span class="relative z-10 font-display text-xs md:text-sm uppercase tracking-widest">Submit → Build With Krishna.</span>
                             <div class="absolute inset-0 bg-cyan-400 translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
                         </button>
                     </form>
@@ -1227,7 +1145,7 @@
                 });
             });
 
-            // Theme Transition 1: Philosophy (White background)
+            // Theme Transition 1: White background sections
             gsap.to("body", {
                 backgroundColor: "#ffffff",
                 color: "#000000",
@@ -1239,7 +1157,7 @@
                 }
             });
 
-            // Theme Transition 2: Bento (Back to Dark)
+            // Theme Transition 2: Bento / Value Section (Back to Dark)
             ScrollTrigger.create({
                 trigger: "#value-add",
                 start: "top center",
@@ -1248,15 +1166,17 @@
                     // Explicitly reveal bento cards
                     gsap.to(".bento-card", { opacity: 1, y: 0, stagger: 0.1, duration: 0.8, ease: "power4.out" });
                 },
-                onLeaveBack: () => gsap.to("body", { backgroundColor: "#ffffff", color: "#000000", duration: 0.4 })
+                onLeaveBack: () => {
+                    // Logic for switching back depends on where user scrolls
+                }
             });
 
-            // Theme Transition 3: Ecosystem & Beyond (Back to White)
+            // Theme Transition 3: Collaboration (Ensure visibility)
             gsap.to("body", {
                 backgroundColor: "#ffffff",
                 color: "#000000",
                 scrollTrigger: {
-                    trigger: "#ecosystem",
+                    trigger: "#collab",
                     start: "top center",
                     end: "bottom center",
                     scrub: true
@@ -1339,9 +1259,43 @@
             });
         });
 
+        // WhatsApp Form Handler
+        function initWhatsAppForm() {
+            const form = document.getElementById('whatsappForm');
+            if (form) {
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    
+                    const brand = document.getElementById('brand_name').value;
+                    const name = document.getElementById('user_name').value;
+                    const email = document.getElementById('user_email').value;
+                    const link = document.getElementById('user_link').value;
+                    const phone = document.getElementById('user_phone').value;
+                    const collab = document.getElementById('user_collab').value;
+                    
+                    const whatsappNumber = "917448200042"; // With country code
+                    const message = `Hey Krishna,%0A%0A` +
+                                    `Hope you’re doing well.%0A%0A` +
+                                    `We’re ${encodeURIComponent(brand)}, and we’ve been following your work.%0A` +
+                                    `We’d love to explore a collaboration with you—details are shared below:%0A%0A` +
+                                    `• Email: ${encodeURIComponent(email)}%0A` +
+                                    `• Link: ${encodeURIComponent(link)}%0A` +
+                                    `• Phone: ${encodeURIComponent(phone)}%0A` +
+                                    `• Inquiry: ${encodeURIComponent(collab)}%0A%0A` +
+                                    `Would love to hear your thoughts whenever you get a chance.%0A%0A` +
+                                    `Warm regards,%0A` +
+                                    `${encodeURIComponent(name)}%0A` +
+                                    `${encodeURIComponent(brand)}`;
+                    
+                    window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
+                });
+            }
+        }
+
         window.onload = () => {
             initThree();
             initGSAP();
+            initWhatsAppForm();
         };
 
         window.addEventListener('resize', () => {
